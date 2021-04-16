@@ -1,0 +1,20 @@
+table{
+    margin: 150pc auto;
+    border-collapse: collapse;
+    width:20%;
+    text-align: center;
+    background-color: lightyellow;
+}
+table,td,th{
+    border: 1px solid black;
+}
+th{
+    color: black;
+}
+tr:first-of-type th{
+    background-color: purple;
+    color: white;
+}
+caption{
+    caption-side: bottom;
+}

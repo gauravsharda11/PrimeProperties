@@ -1,0 +1,59 @@
+<html>
+    <head>
+
+        <title>jQuery UI Slider - Range slider</title>
+        <link rel="stylesheet" href="C:\Users\Vaishali\Downloads\jquery-ui-1.11.2\jquery-ui.min.css">
+        <script src="https://code.jquery.com/jquery-1.10.2.js" integrity="sha256-it5nQKHTz+34HijZJQkpNBIHsjpV8b6QzMJs9tmOBSo=" crossorigin="anonymous"></script>
+        <script  src="https://code.jquery.com/ui/1.11.2/jquery-ui.js" integrity="sha256-JuG1CcoXp1bbh4ZIQOMaGnyqLOkWSqL/8sYShMWCwMI=" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    </head>
+    <body>
+
+<div style="margin-bottom:20px;">
+  <label for="amount">Price range:</label>
+  <span style="float:right;">	
+						<input id="amount-min" step=".001" type="number" placeholder="0.000" style="border: 1px solid #ddd;; color:#f6931f; font-weight:bold; text-align:center; width:75px; padding-bottom: 0px; padding-top: 0px;">
+						<input id="amount-max" step=".001" type="number" placeholder="0.000" style="border: 1px solid #ddd;; color:#f6931f; font-weight:bold; text-align:center; width:75px; padding-bottom: 0px; padding-top: 0px;">
+					</span>
+</div>
+<div id="slider-range"></div>
+    </body>
+</html>
+
+<script>
+    $(function() {
+     $("#slider-range").slider({
+       range: true,
+       min: 0,
+       max: 500,
+       step: 0.001,
+       values: [35.113, 300.123],
+       slide: function(event, ui) {
+
+         $("#amount-min").val(ui.values[0]);
+         $("#amount-max").val(ui.values[1]);
+       }
+     });
+     
+     $("#amount-min").val($("#slider-range").slider("values", 0));
+     $("#amount-max").val($("#slider-range").slider("values", 1));
+     console.log(
+         $("#amount-min").val() );
+     $('#amount-min').on('input', function() {
+       if ($(this).val() < $("#amount-max").val()) {
+         $("#slider-range").slider('values', 0, $(this).val());
+       }
+
+     });
+
+     $('#amount-max').on('input', function() {
+       if ($(this).val() > $("#amount-min").val()) {
+         $("#slider-range").slider('values', 1, $(this).val());
+       }
+     });
+
+
+   });
+</script>

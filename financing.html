@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Prime Properties :: Financing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/prime.css">
+    <style>
+        .ui-widget-heade {
+            background: indianred !important;
+        }
+    </style>
+    <title>jQuery UI : Slider with Maximum Range </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-2.1.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="js/finance.js"></script>
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="contentnav financebackimage">
+            <div class="topnav">
+                <div class="topnav-right">
+                    <a href="index.html">Home</a>
+                    <a href="listings.html">Listings</a>
+                    <a href="financing.html">Financing</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <header>
+                    <h1>Prime Properties</h1>
+                </header>
+            </div>
+            <div class="financecontainer row">
+                <main>
+                    <h2>Financing</h2>
+                    <p>We work with many area mortgage and finance companies.</p>
+                    <h3>Mortgage FAQs</h3>
+                    <ol>
+                        <li>What amount of mortgage do I qualify for? </li>
+                        <li>The total basic monthly housing cost is normally based on 29% to 41% of your gross monthly
+                            income.</li>
+                        <li>Which percentage is most often used? </li>
+                        <li>The percentage used depends on the lending institution and type of financing.</li>
+                        <li>How do I get started?</li>
+                        <li> Contact us today to help you arrange financing for your home.</li>
+                    </ol>
+                </main>
+            </div>
+            <div class="row">
+                <div class="col-sm-8" style="background: orangered;height: 200px;">
+                    <div class="row" style="height: 66px;">
+                        <div class="col-sm-8">
+                            <div id="mySliderLoan"></div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="loanamount">Loan Amount : </label>
+                            <input type="text" id="loanamount" style="border:0; color:#fa4b2a; font-weight:bold;">
+                        </div>
+                    </div>
+                    <div class="row" style="height: 66px;">
+                        <div class="col-sm-8">
+                            <div id="mySliderinterest"></div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="interest">Inverest Rate:</label>
+                            <input type="text" id="interest" style="border:0; color:#fa4b2a; font-weight:bold;"> </div>
+                    </div>
+                    <div class="row" style="height: 66px;">
+                        <div class="col-sm-8">
+                            <div id="mySlideryears"></div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="years">Years:</label>
+                            <input type="text" id="years" style="border:0; color:#fa4b2a; font-weight:bold;"> </div>
+                    </div>
+                    <!-- <div>
+                        <input type="text" readonly id="monthlyam"/>
+                    </div> -->
+                </div>
+                <div class="col-sm-4">
+                    <div id="chartContainer" style="height: 200px; width: 100%;"></div>
+                </div>
+            </div>
+            <footer>
+                <div class="footer row">
+                    Prime Properties<br> 3055 Bode Road<br> Schaumburg, IL 60194 <br> 847-555-5555 <br>
+                    Copyright &copy; 2018 Prime Properties<br>
+                    <a href="mailto:yourfirstname@yourlastname.com">yourfirstname@yourlastname.com</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Range with Dynamic Label</title>
+    <link rel="stylesheet" href="C:\Users\Vaishali\Downloads\jquery-ui-1.11.2\jquery-ui.min.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js" integrity="sha256-it5nQKHTz+34HijZJQkpNBIHsjpV8b6QzMJs9tmOBSo=" crossorigin="anonymous"></script>
+    <script  src="https://code.jquery.com/ui/1.11.2/jquery-ui.js" integrity="sha256-JuG1CcoXp1bbh4ZIQOMaGnyqLOkWSqL/8sYShMWCwMI=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{
+    min-height: 100vh;
+    padding: 0 10vh;
+    margin: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    margin: 20px 0;
+    width: 100%;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: #03a9f4;
+    border-radius: 25px;
+}
+input[type=range]::-webkit-slider-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 4px 0 rgba(0,0,0, 1);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -8px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #03a9f4;
+}
+.range-wrap{
+    width: 500px;
+    position: relative;
+}
+.range-value{
+    position: absolute;
+    top: -50%;
+}
+.range-value span{
+    width: 30px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background: #03a9f4;
+    color: #fff;
+    font-size: 12px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 6px;
+}
+.range-value span:before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid #03a9f4;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -1px;
+}
+    </style>
+</head>
+<body>
+    <div class="range-wrap">
+        <div class="range-value" id="rangeV"></div>
+        <input id="range" type="range" min="200" max="800" value="200" step="1">
+        <input type="text" id="inpdt"/>
+        <p>Value: <span id="demo"></span></p>
+    </div>
+</body>
+</html>
+<script>
+    // $("#rangeV").slider({
+    //    range: true,
+    //    min: 1,
+    //    max: 50000000,
+    //    step: 1000,
+    //    values: [1,50000000],
+    //    slide: function(event, ui) {
+
+    //      $("#inpdt").val(ui.values[0]);
+    //    }
+    //  });
+const
+    range = document.getElementById('range'),
+    rangeV = document.getElementById('rangeV'),
+    setValue = ()=>{
+        const
+            newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
+            newPosition = 10 - (newValue * 0.2);
+        rangeV.innerHTML = `<span>${range.value}</span>`;
+        rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
+    };
+document.addEventListener("DOMContentLoaded", setValue);
+range.addEventListener('input', setValue);
+inpdt.addEventListener('input', setValue);
+
+var rngvalue=document.getElementById("range").value;
+document.getElementById("inpdt").value=rngvalue;
+// $(function() {
+// $("#inpdt").val($("#rangeV").slider("values", 0));
+//      console.log(
+//          $("#inpdt").val() );
+//      $('#inpdt').on('input', function() {
+//        if ($(this).val() < $("#inpdt").val()) {
+//          $("#rangeV").slider('values', 0, $(this).val());
+//        }
+
+//      });
+//     });
+</script>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>Custom Range Slider</h1>
+
+<div id="slidecontainer">  
+  <p>Custom range slider:</p>
+  <input type="range" min="1" max="50000000" value="25000000" class="slider" id="myrange" >
+  <input type="text" id="inp"/>
+</div>
+
+</body>
+</html>
+
+
+<div id="loanamountsteps" class="steps">
+  <span class="tick" style="left: 0%;">|
+    <br><span class="marker">0</span></span>
+    <span class="tick d-none d-sm-table-cell" style="left: 12.5%;">|<br>
+      <span class="marker">25L</span></span><span class="tick" style="left: 25%;">|<br>
+        <span class="marker">50L</span>
+      </span>
+      <span class="tick d-none d-sm-table-cell" style="left: 37.5%;">|<br>
+        <span class="marker">75L</span>
+      </span>
+      <span class="tick" style="left: 50%;">|<br>
+        <span class="marker">100L</span>
+      </span>
+      <span class="tick d-none d-sm-table-cell" style="left: 62.5%;">|<br>
+        <span class="marker">125L</span></span><span class="tick" style="left: 75%;">|<br>
+          <span class="marker">150L</span>
+        </span>
+        <span class="tick d-none d-sm-table-cell" style="left: 87.5%;">|<br>
+          <span class="marker">175L</span>
+        </span>
+        <span class="tick" style="left: 100%;">|<br>
+          <span class="marker">200L</span>
+        </span>
+      </div>
+
+      <script>
+        var rangevalue = document.getElementsByClassName("slider")[0].value;
+        document.getElementById("inp").value = rangevalue;
+
+        const
+    range = document.getElementById('myrange'),
+    rangeV = document.getElementById('slidecontainer'),
+    setValue = ()=>{
+        const
+            newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
+            newPosition = 10 - (newValue * 0.2);
+        rangeV.innerHTML = `<span>${range.value}</span>`;
+        rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
+    };
+document.addEventListener("DOMContentLoaded", setValue);
+range.addEventListener('input', setValue);
+      </script>
